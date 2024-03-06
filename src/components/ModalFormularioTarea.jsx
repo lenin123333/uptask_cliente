@@ -61,6 +61,7 @@ const ModalFormularioTarea = () => {
     const { msg } = alerta
     return (
         <Transition.Root show={modalFormularioTarea} as={Fragment}>
+            
             <Dialog as="div" className="fixed z-10 inset-0 overflow-y-auto" onClose={handleModalTarea}>
                 <div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
                     <Transition.Child
@@ -111,10 +112,11 @@ const ModalFormularioTarea = () => {
                             <div className="sm:flex sm:items-start">
 
                                 <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left w-full">
+                                {msg && <Alerta alerta={alerta} />}
                                     <Dialog.Title as="h3" className="text-lg leading-6 font-bold text-gray-900">
                                         {idTarea ?'Modificar Tarea' :'Crear Tarea'}
                                     </Dialog.Title>
-                                    {msg && <Alerta alerta={alerta} />}
+                                    
                                     <form className='my-10' onSubmit={handleSubmit}>
                                         <div className='mb-5'>
                                             <label
@@ -126,6 +128,7 @@ const ModalFormularioTarea = () => {
                                                 value={nombre}
                                                 onChange={e => setNombre(e.target.value)}
                                             />
+                                          
                                         </div>
                                         <div className='mb-5'>
                                             <label
